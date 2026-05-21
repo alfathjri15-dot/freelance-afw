@@ -1,0 +1,1174 @@
+/* ==========================================================================
+   BAGROUND
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll halus saat menu diklik */
+}
+
+body {
+    background-color: #0b111e; /* Deep Slate Black */
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(9, 13, 22, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
+    border-bottom: 1px solid #1e293b;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Memaksa semua elemen tetap di 1 baris, dilarang turun */
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    flex-shrink: 0; /* Logo tidak boleh mengecil/tertekan */
+}
+
+.nav-logo span {
+    color: #10b981;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-item {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Teks menu tidak boleh patah jadi 2 baris */
+}
+
+.nav-item:hover {
+    color: #10b981;
+}
+
+.nav-action {
+    flex-shrink: 0;
+    margin-right: -30px; /* Menggeser ke kanan di desktop */
+}
+
+.btn-nav {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #10b981;
+    color: #10b981;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Tombol "Book Consultation" dipaksa lurus, anti-potong */
+}
+
+.btn-nav:hover {
+    background-color: #10b981;
+    color: #0b111e;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+@media screen and (max-width: 650px) {
+    /* Kunci Utama: Di bawah 650px menu teks disembunyikan agar 
+       Logo dan Tombol punya ruang lega di ujung kiri dan kanan */
+    .nav-menu {
+        display: none !important; 
+    }
+    
+    .nav-container {
+        width: 92%;
+    }
+    
+    .nav-logo {
+        font-size: 19px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .nav-action {
+        margin-right: 0; /* Kembali ke posisi aman di HP */
+    }
+}
+
+/* ==========================================================================
+   PROFILE HERO SECTION (DESKTOP STYLE)
+   ========================================================================== */
+.p-hero-block {
+    background-color: #090f1c; /* Latar belakang senada dengan tema website utama */
+    padding: 140px 0 100px 0; /* Memberi ruang di atas agar tidak tertutup fixed navbar */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container pembatas lebar konten */
+.p-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.p-hero-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px; /* Jarak renggang yang elegan antara teks dan foto */
+}
+
+/* Konfigurasi Blok Teks */
+.p-hero-text {
+    flex: 1;
+    max-width: 680px;
+}
+
+.p-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-family: 'Inter', sans-serif;
+}
+
+.p-hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.p-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: #10b981; /* Warna aksen hijau zamrud */
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.p-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #94a3b8; /* Abu-abu soft ramah baca */
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.p-bio em {
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Blok Tombol Aksi (CTA) */
+.p-hero-cta {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-p-primary, .btn-p-secondary {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-p-primary {
+    background-color: #10b981;
+    color: #090f1c;
+    border: 1px solid #10b981;
+}
+
+.btn-p-primary:hover {
+    background-color: #059669;
+    border-color: #059669;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-p-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #334155;
+}
+
+.btn-p-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+}
+
+/* --- UI UPGRADE: Pembungkus Foto dengan Efek Glow Kaca --- */
+.p-hero-photo-container {
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* Ornamen pendaran cahaya di belakang foto */
+.p-hero-photo-container::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.p-hero-photo-wrapper {
+    width: 320px;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.p-hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Foto dipotong proporsional mengikuti rasio kotak, anti-penyet */
+    transition: transform 0.5s ease;
+}
+
+.p-hero-photo-wrapper:hover .p-hero-photo {
+    transform: scale(1.04); /* Efek zoom-in halus saat foto disorot mouse */
+}
+
+@media screen and (max-width: 768px) {
+    .p-hero-block {
+        padding: 110px 0 70px 0; /* Mengurangi padding di layar ponsel */
+    }
+
+    .p-hero-flex {
+        flex-direction: column-reverse; /* Menggeser FOTO ke posisi ATAS, TEKS di BAWAH */
+        text-align: center;
+        gap: 45px;
+    }
+
+    .p-hero-text {
+        max-width: 100%;
+    }
+
+    .p-badge {
+        margin-bottom: 20px;
+    }
+
+    .p-hero-text h1 {
+        font-size: 34px;
+    }
+
+    .p-tagline {
+        font-size: 18px;
+    }
+
+    .p-hero-cta {
+        justify-content: center; /* Memposisikan sepasang tombol di tengah-tengah layar HP */
+    }
+
+    .p-hero-photo-wrapper {
+        width: 240px;
+        height: 300px; /* Ukuran frame foto di HP dibuat ringkas */
+        border-radius: 16px;
+    }
+}
+
+/* ==========================================================================
+   CORE COMPETENCIES SECTION
+   ========================================================================== */
+.p-section-block {
+    background-color: #090f1c;
+    padding: 100px 0;
+    position: relative;
+}
+
+.p-block-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.p-block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Garis dekoratif kecil di bawah judul */
+.p-block-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #10b981;
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* --- KUNCI UTAMA GRID --- */
+.p-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom sama rata di desktop */
+    gap: 30px;
+}
+
+/* --- UI CARD: Glassmorphism Style --- */
+.p-card-item {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.p-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.p-icon {
+    font-size: 24px;
+    background: rgba(16, 185, 129, 0.08);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.p-card-item h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* --- UI TAGS: Mengubah teks koma menjadi Badge modern --- */
+.p-skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.p-skill-tags span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #94a3b8;
+    background: rgba(31, 41, 55, 0.5);
+    border: 1px solid #374151;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+/* --- INTERACTIVE HOVER EFFECTS (UX) --- */
+.p-card-item:hover {
+    transform: translateY(-5px);
+    border-color: #10b981;
+    background: #111827;
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.06);
+}
+
+.p-card-item:hover .p-icon {
+    background: #10b981;
+    color: #090f1c;
+    transform: scale(1.05);
+}
+
+.p-card-item:hover .p-skill-tags span {
+    color: #e2e8f0;
+    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.03);
+}
+
+@media screen and (max-width: 640px) {
+    .p-block-container {
+        width: 90%;
+    }
+    
+    .p-block-title {
+        font-size: 28px;
+    }
+
+    .p-skills-grid {
+        grid-template-columns: 1fr; /* Menjadi 1 kolom bertumpuk di HP */
+        gap: 20px;
+    }
+    
+    .p-card-item {
+        padding: 25px 20px;
+    }
+}
+
+/* ==========================================================================
+   PROFESSIONAL EXPERIENCE TIMELINE STYLE
+   ========================================================================== */
+.p-timeline-wrapper {
+    width: 85%;
+    max-width: 1000px; /* Ukuran menyempit sedikit agar membaca isi resume lebih fokus */
+    margin: 0 auto;
+}
+
+.p-timeline-container {
+    position: relative;
+    padding-left: 45px; /* Memberikan ruang horizontal untuk as linier */
+    margin-top: 60px;
+}
+
+/* --- UI LINEAR: Garis Lajur Statis --- */
+.p-timeline-line {
+    position: absolute;
+    left: 6px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: #1e293b; /* Warna rel dasar */
+    z-index: 1;
+}
+
+/* --- KUNCI ANIMASI NODE --- */
+.p-timeline-node {
+    position: relative;
+    margin-bottom: 55px; /* Jarak renggang antar tempat kerja */
+    z-index: 2;
+}
+
+.p-timeline-node:last-child {
+    margin-bottom: 0;
+}
+
+/* --- UI DOT: Titik Poros Berpendar (Glow) --- */
+.p-timeline-dot {
+    position: absolute;
+    left: -45px; /* Tepat di atas garis .p-timeline-line */
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    background: #090f1c;
+    border: 2px solid #475569;
+    border-radius: 50%;
+    z-index: 3;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- UI CONTAINER HEADER --- */
+.p-node-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.p-node-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #10b981; /* Warna hijau menyala komparasi waktu */
+    letter-spacing: 0.5px;
+}
+
+.p-node-company {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+/* --- UI CONTENT BLOK CARD --- */
+.p-node-content {
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid #1f2937;
+    padding: 30px 35px;
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-node-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 18px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Badges Jenis Kontrak Kerja */
+.p-job-type {
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(51, 65, 85, 0.4);
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Custom Bullet Point (Poin Kinerja Anda) */
+.p-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.p-bullets li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Mengubah bullet standar menjadi persegi kecil berwarna hijau zamrud */
+.p-bullets li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #10b981;
+    font-size: 14px;
+}
+
+/* --- INTERACTIVE MICROS-UX HOVER EFFECTS --- */
+.p-timeline-node:hover .p-timeline-dot {
+    background: #10b981;
+    border-color: #10b981;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+    transform: scale(1.2);
+}
+
+.p-timeline-node:hover .p-node-content {
+    background: #111827;
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.p-timeline-node:hover .p-node-company {
+    color: #ffffff;
+}
+
+/* --- KONDISI AWAL (Sebelum Elemen Terlihat di Layar) --- */
+.p-card-item, .p-timeline-node {
+    opacity: 0;
+    transform: translateY(30px); /* Efek awal terdorong ke bawah */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; /* Menjaga transisi hover Anda sebelumnya tetap halus */
+    will-change: transform, opacity; /* Optimasi performa render browser */
+}
+
+/* --- KONDISI AKHIR (Ditembak Otomatis Oleh Script Saat Di-scroll) --- */
+.p-card-item.scroll-active, .p-timeline-node.scroll-active {
+    opacity: 1;
+    transform: translateY(0); /* Naik kembali ke posisi asli */
+}
+
+@media screen and (max-width: 640px) {
+    .p-timeline-wrapper {
+        width: 90%;
+    }
+
+    .p-timeline-container {
+        padding-left: 30px; /* Merapatkan grid garis ke tepi kiri */
+    }
+
+    .p-timeline-line {
+        left: 4px;
+    }
+
+    .p-timeline-dot {
+        left: -30px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .p-node-header {
+        flex-direction: column; /* Menumpuk Tanggal & PT Perusahaan di HP */
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 15px;
+    }
+
+    .p-node-content {
+        padding: 20px 20px;
+    }
+
+    .p-node-content h3 {
+        font-size: 17px;
+        flex-direction: column; /* Judul posisi kerja dan badge ikut melipat vertikal */
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* ==========================================================================
+   EDUCATION BACKGROUND SECTION STYLING
+   ========================================================================== */
+.p-edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Membagi 2 kolom simetris di monitor laptop */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* --- UI BOX: Desain Kontainer Kaca dengan Batas Aksen --- */
+.p-edu-box {
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid #1f2937;
+    /* Memberikan aksen garis tebal di sebelah kiri sebagai jangkar visual */
+    border-left: 3px solid #334155; 
+    border-radius: 16px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* MENGHUBUNGKAN KE SCRIPT SCROLL ANIMATION ANDA: */
+    /* Jika ingin kotak ini ikut meluncur naik saat di-scroll, pastikan p-edu-box */
+    /* didaftarkan ke querySelector skrip Anda, atau beri transisi bawaan di bawah ini: */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.p-edu-year {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+    background: rgba(31, 41, 55, 0.6);
+    border: 1px solid #374151;
+    padding: 5px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* UI BADGE: Menampilkan pencapaian IPK tinggi secara prestisius */
+.p-gpa-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #10b981; /* Hijau zamrud cerah */
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 5px 14px;
+    border-radius: 30px;
+}
+
+.p-edu-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+}
+
+.p-edu-degree {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #10b981; /* Menandakan gelar sains utama Anda */
+    margin: 0;
+}
+
+/* Garis pembatas horizontal tipis internal */
+.p-edu-divider {
+    height: 1px;
+    background-color: #1f2937;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.p-edu-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- MICRO-INTERACTIONS HOVER (UX) --- */
+.p-edu-box:hover {
+    transform: translateY(-5px);
+    background: #111827;
+    border-color: #1f2937;
+    border-left-color: #10b981; /* Garis vertikal kiri menyala emerald saat disentuh */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.p-edu-box:hover .p-edu-year {
+    color: #ffffff;
+    border-color: #4b5563;
+}
+
+.p-edu-box:hover .p-gpa-badge {
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .p-edu-grid {
+        grid-template-columns: 1fr; /* Otomatis melipat menjadi 1 kolom vertikal di HP */
+        gap: 20px;
+    }
+
+    .p-edu-box {
+        padding: 25px;
+    }
+
+    .p-edu-box h3 {
+        font-size: 19px;
+    }
+}
+
+/* ==========================================================================
+   CERTIFICATIONS VARIATION STYLE
+   ========================================================================== */
+.p-cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Kolom sejajar di desktop */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* --- UI CARD: Bentuk Simetris Horizontal --- */
+.p-cert-card {
+    background: linear-gradient(135deg, rgba(21, 32, 54, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%);
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 35px 30px;
+    position: relative;
+    overflow: hidden; /* Menahan lengkungan sudut badge */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- UI BADGE TYPE: Label Klasifikasi di Pojok Kanan Atas --- */
+.p-cert-badge-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    border-radius: 0 0 0 12px;
+}
+
+/* Variasi Warna Label */
+.p-cert-badge-type.international {
+    background: rgba(59, 130, 246, 0.15); /* Biru tech transparan */
+    color: #60a5fa;
+    border-left: 1px solid rgba(59, 130, 246, 0.3);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.p-cert-badge-type.national {
+    background: rgba(16, 185, 129, 0.12); /* Hijau transparan */
+    color: #10b981;
+    border-left: 1px solid rgba(16, 185, 129, 0.2);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* --- BODY ALIGNMENT --- */
+.p-cert-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 10px; /* Memberi ruang agar tidak menabrak badge pojok */
+}
+
+/* Bingkai Ikon Kredensial */
+.p-cert-icon {
+    font-size: 26px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid #334155;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.p-cert-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+}
+
+.p-cert-issuer {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+.p-cert-issuer strong {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.p-cert-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- HOVER HIGH-END MIKRO INTERAKSI (UX) --- */
+.p-cert-card:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6; /* Ketika di-hover, sertifikat memancarkan warna biru verifikasi */
+    background: #111827;
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.05); /* Pendaran glow biru halus */
+}
+
+.p-cert-card:hover .p-cert-icon {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+    transform: rotate(5deg); /* Efek rotasi medali tipis yang unik */
+}
+
+@media screen and (max-width: 768px) {
+    .p-cert-grid {
+        grid-template-columns: 1fr; /* Responsif melipat ke bawah di HP */
+        gap: 20px;
+    }
+
+    .p-cert-card {
+        padding: 30px 20px;
+    }
+
+    .p-cert-body {
+        flex-direction: column; /* Ikon dan teks menumpuk vertikal di HP */
+        gap: 15px;
+    }
+    
+    .p-cert-info h3 {
+        font-size: 18px;
+        padding-right: 80px; /* Mencegah judul menabrak badge tipe di HP */
+    }
+}
+
+/* ==========================================================================
+   TECH STACK & CV DOWNLOAD ACTION SECTION
+   ========================================================================== */
+.p-stack-action-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Membagi porsi: Kiri agak lebar, Kanan ringkas pas */
+    gap: 50px;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.5) 0%, rgba(9, 15, 28, 0.8) 100%);
+    border: 1px solid #1e293b;
+    padding: 45px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+/* --- LEFT SIDE: TECH STACK --- */
+.p-stack-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.p-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Gaya Tag Standar */
+.p-tag-item, .p-tag-expert {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.p-tag-item {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid #1e293b;
+    color: #94a3b8;
+}
+
+/* Gaya Tag Tingkat Ahli (Expert) -> Menyala Hijau */
+.p-tag-expert {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.p-tag-expert small {
+    font-size: 9px;
+    text-transform: uppercase;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+/* Hover Efek Mikro pada Tag */
+.p-tag-item:hover {
+    color: #ffffff;
+    border-color: #475569;
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.p-tag-expert:hover {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+/* --- RIGHT SIDE: ACTION CARD & CTA BUTTON --- */
+.p-action-card {
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.p-action-card h5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.p-action-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+/* Tombol Download Premium */
+.btn-download-cv {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: #10b981;
+    color: #090f1c;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-download-cv svg {
+    transition: transform 0.3s ease;
+}
+
+/* Hover & Klik Interaksi */
+.btn-download-cv:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-download-cv:hover svg {
+    transform: translateY(2px); /* Efek panah SVG menghentak ke bawah sedikit */
+}
+
+.btn-download-cv:active {
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 868px) {
+    .p-stack-action-container {
+        grid-template-columns: 1fr; /* Lipat jadi 1 kolom bertumpuk di HP/Tablet */
+        gap: 35px;
+        padding: 30px 25px;
+    }
+    
+    .p-action-card {
+        padding: 20px;
+    }
+}
+
+/* ==========================================================================
+   INTEGRATED FOOTER LEGAL DISCLAIMER
+   ========================================================================== */
+.site-footer {
+    background-color: #0d1117; /* Sesuai dengan warna dasar footer Anda */
+    padding: 60px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Memastikan kontainer memiliki pengaman ruang terluar */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0 40px !important; /* Benteng pelindung anti-nempel dinding */
+    box-sizing: border-box;
+}
+
+.footer-brand {
+    flex: 1;
+    max-width: 650px; /* Membatasi lebar teks agar tidak terlalu memanjang ke kanan */
+    text-align: left;
+}
+
+.footer-copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #8b949e;
+    margin: 8px 0 15px 0;
+}
+
+/* Gaya Teks Disclaimer Terintegrasi */
+.footer-legal-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    color: #48515b; /* Abu-abu gelap redup agar bersifat sekunder dan elegan */
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+.footer-legal-disclaimer strong {
+    color: #6e7681; /* Sedikit lebih terang pada teks penanda 'Disclaimer' */
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Lipat menjadi vertikal atas-bawah di HP */
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 0 20px !important; /* Rampingkan jarak sisi di gawai kecil */
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-legal-disclaimer {
+        text-align: center; /* Rata tengah penuh agar proporsional di layar HP */
+        font-size: 11px;
+    }
+}

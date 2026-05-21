@@ -1,0 +1,1107 @@
+/* ==========================================================================
+   BAGROUND
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll halus saat menu diklik */
+}
+
+body {
+    background-color: #0b111e; /* Deep Slate Black */
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(9, 13, 22, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
+    border-bottom: 1px solid #1e293b;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Memaksa semua elemen tetap di 1 baris, dilarang turun */
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    flex-shrink: 0; /* Logo tidak boleh mengecil/tertekan */
+}
+
+.nav-logo span {
+    color: #10b981;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-item {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Teks menu tidak boleh patah jadi 2 baris */
+}
+
+.nav-item:hover {
+    color: #10b981;
+}
+
+.nav-action {
+    flex-shrink: 0;
+    margin-right: -30px; /* Menggeser ke kanan di desktop */
+}
+
+.btn-nav {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #10b981;
+    color: #10b981;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Tombol "Book Consultation" dipaksa lurus, anti-potong */
+}
+
+.btn-nav:hover {
+    background-color: #10b981;
+    color: #0b111e;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+@media screen and (max-width: 650px) {
+    /* Kunci Utama: Di bawah 650px menu teks disembunyikan agar 
+       Logo dan Tombol punya ruang lega di ujung kiri dan kanan */
+    .nav-menu {
+        display: none !important; 
+    }
+    
+    .nav-container {
+        width: 92%;
+    }
+    
+    .nav-logo {
+        font-size: 19px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .nav-action {
+        margin-right: 0; /* Kembali ke posisi aman di HP */
+    }
+}
+
+/* ==========================================================================
+   HERO SECTION STYLE & SECTION
+   ========================================================================== */
+.hero {
+    padding: 180px 0 80px 0; /* Memberi ruang agar tidak tertutup navbar */
+    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 40%);
+}
+
+.subtitle {
+    color: #10b981;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    max-width: 850px;
+    line-height: 1.2;
+}
+
+.bio {
+    font-size: 18px;
+    color: #94a3b8;
+    max-width: 750px;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #10b981;
+    color: #0b111e;
+}
+
+.btn-primary:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 1px solid #334155;
+    color: #f1f5f9;
+}
+
+.btn-secondary:hover {
+    background-color: #1e293b;
+}
+
+.solutions-section {
+    padding: 100px 0;
+    border-top: 1px solid #1e293b;
+    background-color: #090f1c;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.section-header .tagline {
+    color: #10b981;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.section-header p {
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   3D OVERLAPPING CAROUSEL CAPABILITIES
+   ========================================================================== */
+.solutions-section {
+    padding: 80px 0;
+    background-color: #0b0f19;
+    overflow: hidden;
+}
+
+.carousel-3d-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: 50px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Track Penampung Card */
+.solutions-grid-3d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 520px; /* Jaga tinggi area konstan agar layout tidak bergeser saat skala berubah */
+    position: relative;
+}
+
+/* Base Styling Semua Card */
+.solution-card {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 35px;
+    width: 380px;
+    height: 460px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    
+    /* Transisi super halus saat bergeser dan berubah bentuk */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.6s ease, 
+                filter 0.6s ease, 
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+    
+    position: absolute; /* Stack dasar untuk diatur posisinya lewat kelas JS */
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- KUNCI EFEK 3D BERTUMPUK (OVERLAP) & BLUR --- */
+
+/* 1. Card Posisi Kiri (Mundur, Blur, Tertutup separuh oleh tengah) */
+.solution-card.pos-left {
+    opacity: 0.4;
+    filter: blur(4px);
+    transform: translateX(-180px) scale(0.82); /* Menggeser ke kiri dan mengecil */
+    z-index: 1;
+    pointer-events: auto;
+}
+
+/* 2. Card Posisi Kanan (Mundur, Blur, Tertutup separuh oleh tengah) */
+.solution-card.pos-right {
+    opacity: 0.4;
+    filter: blur(4px);
+    transform: translateX(180px) scale(0.82); /* Menggeser ke kanan dan mengecil */
+    z-index: 1;
+    pointer-events: auto;
+}
+
+/* 3. Card Posisi Tengah (Zoom, Terang, Paling Atas menimpa kanan-kiri) */
+.solution-card.pos-center {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0) scale(1.05); /* Zoom membesar */
+    z-index: 3; /* Angka z-index tertinggi agar berada di depan */
+    border-color: #10b981; /* Border hijau emerald menyala seperti screenshot */
+    box-shadow: 0 25px 50px rgba(16, 185, 129, 0.15);
+    pointer-events: auto;
+}
+
+/* Elemen di dalam Card */
+.card-icon {
+    font-size: 28px;
+    background: rgba(255, 255, 255, 0.03);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.solution-card h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.solution-card p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0 0; /* Dorong list ke bagian bawah card */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #1f2937;
+    padding-top: 15px;
+}
+
+.card-features li {
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.4;
+    display: flex;
+    gap: 10px;
+}
+
+.check-icon {
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* --- TOMBOL NAVIGASI PANAH --- */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid #1f2937;
+    color: #10b981;
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #10b981;
+    color: #111827;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* --- INDIKATOR TITIK (DOTS) --- */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1f2937;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #10b981;
+    width: 24px;
+    border-radius: 5px;
+}
+
+/* RESPONSIVE LAYOUT UNTUK HP */
+@media (max-width: 768px) {
+    .solution-card {
+        width: 290px;
+        height: 480px;
+        padding: 25px;
+    }
+    .solution-card.pos-left { transform: translateX(-70px) scale(0.8); }
+    .solution-card.pos-right { transform: translateX(70px) scale(0.8); }
+    .nav-btn { width: 40px; height: 40px; font-size: 16px; }
+}
+
+/* ==========================================================================
+   METHODOLOGY SECTION - GLOW & FILL TIMELINE
+   ========================================================================== */
+.methodology-section {
+    padding: 90px 0;
+    background-color: #0b0f19; /* Latar belakang gelap selaras dengan Capabilities */
+}
+
+/* Container Utama Timeline */
+.method-timeline-glow {
+    position: relative;
+    max-width: 850px;
+    margin: 60px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 45px; /* Jarak antar card ke bawah */
+}
+
+/* --- LOGIKA GARIS VERTIKAL --- */
+.timeline-line-base {
+    position: absolute;
+    left: 40px; /* Senter di tengah lingkaran nomor (lebar nomor 80px / 2) */
+    top: 40px;
+    bottom: 40px;
+    width: 2px;
+    background-color: #1f2937; /* Garis redup dasar */
+    z-index: 1;
+}
+
+/* Efek Fill Neon Hijau pada garis (menambahkan kedalaman visual) */
+.timeline-line-fill {
+    width: 100%;
+    height: 100%; /* Bisa diatur statis atau dinamis */
+    background: linear-gradient(to bottom, #10b981, #3b82f6);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Baris Langkah Individual */
+.method-step-glow {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- DESAIN LINGKARAN NOMOR --- */
+.step-number-glow {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #111827;
+    border: 2px solid #1f2937;
+    color: #9ca3af;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+/* --- DESAIN KOTAK KARTU (CARD) --- */
+.step-card-glow {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 30px;
+    flex-grow: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.step-card-glow h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    transition: color 0.4s ease;
+}
+
+.step-card-glow p {
+    color: #9ca3af;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- EFEK HOVER INTERAKTIF (GLOW) --- */
+
+/* Saat baris di-hover, lingkaran nomor ikut menyala hijau */
+.method-step-glow:hover .step-number-glow {
+    border-color: #10b981;
+    color: #10b981;
+    background-color: #0b0f19;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    transform: scale(1.05);
+}
+
+/* Saat baris di-hover, card utama menyala mewah dan teks naik tingkat kecerahannya */
+.method-step-glow:hover .step-card-glow {
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateX(8px); /* Card bergeser sedikit ke kanan secara elegan */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(16, 185, 129, 0.08);
+}
+
+.method-step-glow:hover .step-card-glow h3 {
+    color: #10b981; /* Judul berubah menjadi hijau emerald saat dibaca */
+}
+
+/* RESPONSIVE LAYOUT (UNTUK LAYAR HP) */
+@media (max-width: 640px) {
+    .method-timeline-glow {
+        gap: 35px;
+    }
+    .timeline-line-base {
+        left: 25px; /* Menyesuaikan posisi garis di layar kecil */
+    }
+    .method-step-glow {
+        gap: 20px;
+    }
+    .step-number-glow {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+    .step-card-glow {
+        padding: 20px;
+    }
+    .step-card-glow h3 {
+        font-size: 17px;
+    }
+    .step-card-glow p {
+        font-size: 13px;
+    }
+    .method-step-glow:hover .step-card-glow {
+        transform: translateY(-4px); /* Di HP geser ke atas lebih natural dibanding ke kanan */
+    }
+}
+
+/* ==========================================================================
+   TRUST SECTION
+   ========================================================================== */
+.trust-section {
+    padding: 100px 0;
+    background-color: #0b111e;
+}
+
+.trust-box {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1px solid #ff9e0b; /* Menggunakan warna Amber/Gold tipis untuk tanda warning/security */
+    border-radius: 16px;
+    padding: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.trust-badge {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.trust-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.trust-box p {
+    color: #94a3b8;
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.trust-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    border-top: 1px solid #334155;
+    padding-top: 30px;
+}
+
+.t-point {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.t-point strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   CONTACT SECTION
+   ========================================================================== */
+.contact-section {
+    padding: 100px 0;
+    background-color: #090f1c;
+    border-top: 1px solid #1e293b;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.contact-section p {
+    color: #94a3b8;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-card-link {
+    background-color: #131b2e;
+    border: 1px solid #1e293b;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    min-width: 280px;
+    transition: all 0.3s ease;
+}
+
+.contact-card-link:hover {
+    border-color: #10b981;
+    background-color: #152238;
+    transform: translateY(-3px);
+}
+
+.contact-card-link h4 {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 15px 0 5px 0;
+}
+
+.contact-card-link p {
+    color: #10b981;
+    font-size: 14px;
+    margin: 0;
+}
+
+.c-icon {
+    font-size: 24px;
+}
+
+/* ==========================================================================
+   TESTIMONI SECTION
+   ========================================================================== */
+.trust-recognition-section {
+    padding: 100px 0;
+    background-color: #090f1c; /* Diubah ke gelap ultra agar menyatu sempurna dengan skema website */
+    border-top: 1px solid #1e293b;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Grid Mesh Halus */
+.trust-recognition-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(24, 34, 54, 0.2) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(24, 34, 54, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.trust-recognition-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Penyelarasan Tipografi Header */
+.trust-recognition-section .section-header .tagline {
+    color: #10b981 !important; /* Diubah ke Emerald agar menyala di latar gelap */
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.trust-recognition-section .section-header h2 {
+    color: #ffffff !important; /* Diubah ke putih bersih */
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -0.5px;
+}
+
+.trust-recognition-section .section-header p {
+    color: #94a3b8 !important; /* Diubah ke abu-abu soft agar nyaman dibaca */
+    font-size: 16px;
+    max-width: 600px;
+    margin: 10px auto 0 auto;
+}
+
+/* Grid Kontainer Logo */
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+/* --- UI/UX UPGRADE: Efek Floating Glass Card untuk Tempat Logo --- */
+.logo-item {
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid #1f2937;
+    padding: 30px 45px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.logo-item img {
+    height: auto;
+    max-height: 55px; /* Batas aman tinggi logo agar tidak raksasa/melar */
+    width: auto;
+    max-width: 160px; /* Batas lebar proporsional */
+    object-fit: contain;
+    filter: grayscale(100%); 
+    opacity: 0.35; /* Dibuat lebih redup saat standby agar estetik */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- HIGH-END HOVER STATE INTERACTION --- */
+.logo-item:hover {
+    transform: translateY(-6px); /* Efek melayang naik ke atas */
+    background: #111827;
+    border-color: #10b981; /* Garis batas berubah menyala emerald */
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.08); /* Pendaran glow hijau halus di bawah kartu */
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%); /* Mengembalikan warna asli logo perusahaan */
+    opacity: 1; /* Menyala terang penuh */
+}
+
+/* --- RESPONSIVE OPTIMIZATION UNTUK HP --- */
+@media (max-width: 768px) {
+    .trust-recognition-section {
+        padding: 70px 0;
+    }
+    
+    .trust-recognition-section .section-header h2 {
+        font-size: 28px;
+    }
+    
+    .logo-grid {
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .logo-item {
+        padding: 20px 35px;
+        border-radius: 12px;
+        width: 100%; /* Memaksa kartu melebar aman atau responsif di layar mini */
+        max-width: 260px;
+    }
+    
+    .logo-item img {
+        max-height: 45px;
+    }
+}
+
+/* ==========================================================================
+   HORIZONTAL CAROUSEL SLIDER (DARK THEME)
+   ========================================================================== */
+.trust-recognition-section_1 {
+    padding: 80px 0;
+    background-color: #0b0f19;
+    overflow: hidden; /* Memastikan tidak merusak layout utama website */
+}
+
+/* Wrapper Pembatas Slider */
+.slider-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Container Utama yang Menghasilkan Efek Slide */
+.cards-carousel {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    scroll-snap-type: x mandatory; /* Efek magnetis saat digeser */
+    scroll-behavior: smooth;
+    padding-bottom: 25px; /* Ruang untuk scrollbar */
+    
+    /* Menyembunyikan scrollbar bawaan browser agar tetap minimalis */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.cards-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Modifikasi Ukuran Card di Dalam Slider */
+.recognition-card-dark {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 40px;
+    
+    /* KUNCI SLIDER: Memastikan tiap card mengambil 100% lebar wrapper */
+    flex: 0 0 100%; 
+    scroll-snap-align: start; /* Titik magnetis berhenti di awal card */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
+
+/* Komponen Pendukung Card */
+.card-dark-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.client-profile-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.client-avatar-frame {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #1f2937;
+    border: 2px solid #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Placeholder Teks Jika Foto Belum Ada */
+.avatar-placeholder {
+    color: #3b82f6;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.client-identity h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0 0 4px 0;
+}
+
+.client-identity .position {
+    color: #9ca3af;
+    font-size: 14px;
+    margin: 0;
+}
+
+.client-identity .company {
+    color: #3b82f6;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 2px 0 0 0;
+}
+
+.client-brand-logo {
+    max-height: 55px;
+    width: auto;
+    border-radius: 6px;
+}
+
+/* Placeholder teks untuk logo simulasi */
+.logo-text-placeholder {
+    font-size: 14px;
+    font-weight: 800;
+    color: #4b5563;
+    letter-spacing: 2px;
+}
+
+.card-dark-divider {
+    height: 1px;
+    background-color: #1f2937;
+    margin: 25px 0;
+}
+
+.card-dark-body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.testimonial-statement {
+    position: relative;
+    padding-left: 25px;
+}
+
+.quote-mark {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    color: #3b82f6;
+    opacity: 0.4;
+}
+
+.testimonial-statement p {
+    color: #9ca3af;
+    font-size: 16px;
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
+}
+
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.achievement-list li {
+    color: #e5e7eb;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.check-icon {
+    color: #10b981;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Petunjuk Geser */
+.swipe-indicator {
+    text-align: center;
+    color: #4b5563;
+    font-size: 12px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* RESPONSIVE LAYOUT (HP) */
+@media (max-width: 640px) {
+    .card-dark-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .recognition-card-dark {
+        padding: 25px;
+    }
+}
+
+/* ==========================================================================
+   INTEGRATED FOOTER LEGAL DISCLAIMER
+   ========================================================================== */
+.site-footer {
+    background-color: #0d1117; /* Sesuai dengan warna dasar footer Anda */
+    padding: 60px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Memastikan kontainer memiliki pengaman ruang terluar */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0 40px !important; /* Benteng pelindung anti-nempel dinding */
+    box-sizing: border-box;
+}
+
+.footer-brand {
+    flex: 1;
+    max-width: 650px; /* Membatasi lebar teks agar tidak terlalu memanjang ke kanan */
+    text-align: left;
+}
+
+.footer-copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #8b949e;
+    margin: 8px 0 15px 0;
+}
+
+/* Gaya Teks Disclaimer Terintegrasi */
+.footer-legal-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    color: #48515b; /* Abu-abu gelap redup agar bersifat sekunder dan elegan */
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+.footer-legal-disclaimer strong {
+    color: #6e7681; /* Sedikit lebih terang pada teks penanda 'Disclaimer' */
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Lipat menjadi vertikal atas-bawah di HP */
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 0 20px !important; /* Rampingkan jarak sisi di gawai kecil */
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-legal-disclaimer {
+        text-align: center; /* Rata tengah penuh agar proporsional di layar HP */
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,1249 @@
+/* ==========================================================================
+   BAGROUND
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll halus saat menu diklik */
+}
+
+body {
+    background-color: #0b111e; /* Deep Slate Black */
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(9, 13, 22, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
+    border-bottom: 1px solid #1e293b;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Memaksa semua elemen tetap di 1 baris, dilarang turun */
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    flex-shrink: 0; /* Logo tidak boleh mengecil/tertekan */
+}
+
+.nav-logo span {
+    color: #10b981;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-item {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Teks menu tidak boleh patah jadi 2 baris */
+}
+
+.nav-item:hover {
+    color: #10b981;
+}
+
+.nav-action {
+    flex-shrink: 0;
+    margin-right: -30px; /* Menggeser ke kanan di desktop */
+}
+
+.btn-nav {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #10b981;
+    color: #10b981;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Tombol "Book Consultation" dipaksa lurus, anti-potong */
+}
+
+.btn-nav:hover {
+    background-color: #10b981;
+    color: #0b111e;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+@media screen and (max-width: 650px) {
+    /* Kunci Utama: Di bawah 650px menu teks disembunyikan agar 
+       Logo dan Tombol punya ruang lega di ujung kiri dan kanan */
+    .nav-menu {
+        display: none !important; 
+    }
+    
+    .nav-container {
+        width: 92%;
+    }
+    
+    .nav-logo {
+        font-size: 19px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .nav-action {
+        margin-right: 0; /* Kembali ke posisi aman di HP */
+    }
+}
+
+/* ==========================================================================
+   ENTERPRISE SOLUTION SUITE HEADER STYLE
+   ========================================================================== */
+.p-solution-header-block {
+    background-color: #090f1c;
+    padding: 140px 0 60px 0; /* Jarak atas yang aman untuk fixed navbar portfolio Anda */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Ornamen Pendaran Cahaya Hijau Lembut di Latar Belakang (Ambient Glow) */
+.p-solution-header-block::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(9, 15, 28, 0) 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.p-solution-header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px; /* Batas aman kiri-kanan agar teks tidak menyentuh layar di HP */
+}
+
+/* Re-use badge hijau zamrud menyala */
+.p-solution-header-content .p-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.p-solution-header-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+/* Garis dekoratif pembatas yang elegan di bawah judul */
+.p-header-line {
+    width: 60px;
+    height: 3px;
+    background: #10b981;
+    margin: 0 auto 25px auto;
+    border-radius: 2px;
+}
+
+.p-solution-header-content .p-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #94a3b8; /* Diubah ke warna abu-abu soft agar tidak melelahkan mata */
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media screen and (max-width: 640px) {
+    .p-solution-header-block {
+        padding: 110px 0 40px 0; /* Padding lebih ramping saat dibuka di handphone */
+    }
+
+    .p-solution-header-content h1 {
+        font-size: 32px; /* Skala font mengecil proporsional di layar HP */
+    }
+
+    .p-solution-header-content .p-tagline {
+        font-size: 14.5px;
+        line-height: 1.6;
+    }
+}
+
+/* ==========================================================================
+   STRATEGIC SOLUTION ROADMAP STRUCTURE
+   ========================================================================== */
+.p-roadmap-section {
+    background-color: #090f1c;
+    padding: 100px 0;
+    border-bottom: 1px solid #1f2937;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.p-block-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tipografi Judul & Subjudul */
+.p-block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 0 15px 0;
+}
+
+.p-block-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #10b981;
+    margin: 15px auto 0 auto;
+    border-radius: 2px;
+}
+
+.p-block-subtitle {
+    font-family: 'Inter', sans-serif;
+    text-align: center; 
+    color: #94a3b8; 
+    max-width: 640px; 
+    margin: 0 auto 60px auto; 
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.p-block-subtitle strong {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.p-roadmap-grid {
+    display: grid !important;
+    /* Desktop default: Membagi menjadi 3 kolom horizontal sama rata */
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.p-roadmap-card {
+    background: rgba(17, 24, 39, 0.5); 
+    border: 1px solid #1f2937; 
+    padding: 35px 30px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Label Penanda Tahapan (Stage) */
+.p-roadmap-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; 
+    font-weight: 800; 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.p-roadmap-badge.stage-01 { color: #10b981; }
+.p-roadmap-badge.stage-02 { color: #3b82f6; } /* Aksen Biru untuk Fase Akselerasi */
+.p-roadmap-badge.stage-03 { color: #10b981; }
+
+.p-roadmap-card h3 {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff; 
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    line-height: 1.4;
+}
+
+.p-roadmap-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; 
+    color: #94a3b8; 
+    line-height: 1.7; 
+    text-align: left;
+    margin: 0;
+}
+
+.p-roadmap-card p strong {
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+/* --- UI HIGHLIGHT: Kartu Visi Utama (Stage 03) --- */
+.p-roadmap-card.p-roadmap-highlight {
+    border: 1px solid rgba(16, 185, 129, 0.35); 
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, rgba(17, 24, 39, 0.8) 100%);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.02);
+}
+
+/* --- MICRO-INTERACTIONS HOVER EFFECT --- */
+.p-roadmap-card:hover {
+    transform: translateY(-5px);
+    background-color: #111827;
+    border-color: #4b5563;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.p-roadmap-card.p-roadmap-highlight:hover {
+    border-color: #10b981;
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.08);
+}
+
+/* 1. Layar Ukuran Menengah & Tablet (Maksimal Lebar 992px) */
+@media screen and (max-width: 992px) {
+    .p-roadmap-grid {
+        /* Mengubah susunan desktop menjadi 2 kolom di tablet */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 25px;
+    }
+    
+    .p-block-subtitle {
+        margin-bottom: 45px;
+    }
+}
+
+/* 2. Layar Ukuran Handphone / Smartphone (Maksimal Lebar 768px) */
+@media screen and (max-width: 768px) {
+    .p-block-container {
+        width: 90%; /* Memberikan ruang baca samping lebih luas di HP */
+    }
+
+    .p-block-title {
+        font-size: 28px; /* Menyesuaikan ukuran judul agar tidak terlalu besar di HP */
+    }
+
+    .p-roadmap-grid {
+        /* KUNCI UTAMA HP: Memaksa elemen hancur kesamping dan wajib bertumpuk ke bawah */
+        grid-template-columns: 1fr !important; 
+        gap: 20px;
+    }
+
+    .p-roadmap-card {
+        width: 100% !important; /* Memastikan lebar kartu penuh memenuhi batas container HP */
+        padding: 30px 25px; /* Menyesuaikan ruang dalam kartu agar proporsional */
+    }
+}
+
+/* ==========================================================================
+   INTERACTIVE PORTFOLIOS STYLE
+   ========================================================================== */
+.p-portfolio-section {
+    background-color: #090f1c;
+    padding: 100px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Sistem Grid Portofolio (2 Kolom Sejajar pada Desktop) */
+.p-portfolio-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+/* --- UI CARD: Arsitektur Kotak Proyek Aplikasi --- */
+.p-project-card {
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-project-header {
+    margin-bottom: 15px;
+}
+
+.p-project-category {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.p-project-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+}
+
+/* Kelompok Label Teknologi (Tech Stack Tags) */
+.p-project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.p-project-tech span {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #94a3b8;
+    background: #1e293b;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+}
+
+.p-project-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0 0 30px 0;
+    flex-grow: 1; /* Memaksa tombol di bagian bawah sejajar secara horizontal */
+}
+
+/* --- UI ACTIONS: Tata Letak Sepasang Tombol --- */
+.p-project-actions {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.btn-demo, .btn-repo {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Tombol Live Demo (Hijau Premium) */
+.btn-demo {
+    background-color: #10b981;
+    color: #090f1c;
+    border: 1px solid #10b981;
+}
+
+.btn-demo:hover {
+    background-color: #059669;
+    border-color: #059669;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+}
+
+/* Tombol GitHub Repo (Gelap Kontras) */
+.btn-repo {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+}
+
+.btn-repo:hover {
+    background-color: #30363d;
+    color: #ffffff;
+    border-color: #8b949e;
+}
+
+/* --- MICRO-INTERACTIONS HOVER CARD --- */
+.p-project-card:hover {
+    transform: translateY(-6px);
+    background: #111827;
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 992px) {
+    .p-portfolio-grid {
+        grid-template-columns: 1fr !important; /* Melipat otomatis jadi 1 kolom di Tablet & HP */
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .p-project-card {
+        padding: 25px 20px;
+    }
+
+    .p-project-card h3 {
+        font-size: 19px;
+    }
+
+    .p-project-actions {
+        flex-direction: column; /* Tombol bertumpuk vertikal di layar HP yang sangat sempit */
+        gap: 10px;
+    }
+    
+    .btn-demo, .btn-repo {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   SCIENTIFIC RESEARCH LAYOUT STYLE
+   ========================================================================== */
+.p-research-section {
+    background-color: #090f1c;
+    padding: 100px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Kunci Grid Riset: Stabil 2 kolom di desktop, otomatis melipat di seluler */
+.p-research-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+/* --- UI CARD: Kotak Jurnal Akademis Premium --- */
+.p-research-card {
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-research-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Badges Status Klasifikasi Publikasi */
+.p-res-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-journal {
+    background: rgba(56, 189, 248, 0.08); /* Biru muda langit */
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+}
+
+.badge-thesis {
+    background: rgba(168, 85, 247, 0.08); /* Ungu royal untuk tesis */
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+}
+
+/* Penanda Indeksasi Internasional Scopus */
+.p-res-index {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    color: #e2e8f0;
+    background: #3b82f6; /* Warna solid pembuktian Scopus */
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.p-research-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.p-res-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 18px 0;
+}
+
+.p-res-meta strong {
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.p-res-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0 0 30px 0;
+    flex-grow: 1; /* Memaksa tombol di bagian bawah simetris horizontal */
+}
+
+/* --- UI BUTTON: Tombol Baca Jurnal Akademis --- */
+.p-res-action-wrapper {
+    width: 100%;
+}
+
+.btn-read-journal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: rgba(59, 130, 246, 0.1); /* Biru transparan elegan */
+    color: #58a6ff;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* --- INTERACTIVE MICROS-UX HOVER EFFECTS --- */
+.p-research-card:hover {
+    transform: translateY(-5px);
+    background: #111827;
+    border-color: rgba(59, 130, 246, 0.3); /* Pendaran biru sains saat kartu disorot */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.btn-read-journal:hover {
+    background: #58a6ff; /* Tombol berubah solid penuh saat disorot */
+    color: #090f1c;
+    border-color: #58a6ff;
+    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.25);
+}
+
+@media screen and (max-width: 992px) {
+    .p-research-grid {
+        grid-template-columns: 1fr !important; /* Otomatis melipat menjadi 1 kolom vertikal di HP */
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .p-research-card {
+        padding: 25px 20px;
+    }
+
+    .p-research-header {
+        flex-direction: column; /* Label melipat vertikal jika di HP terlalu sempit */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .p-research-card h3 {
+        font-size: 18px;
+    }
+}
+
+/* ==========================================================================
+   INTELLECTUAL PROPERTY (HKI) SECTION STYLE
+   ========================================================================== */
+.p-ip-section {
+    background-color: #090f1c;
+    padding: 100px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Kunci Layout Grid HKI: 2 Kolom Sejajar */
+.p-ip-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+/* --- UI CARD: Kotak Aset Legal HKI --- */
+.p-ip-card {
+    background: linear-gradient(135deg, rgba(23, 28, 41, 0.4) 0%, rgba(17, 24, 39, 0.6) 100%);
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-ip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Label Tipe Hak Cipta */
+.p-ip-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(234, 179, 8, 0.06); /* Sentuhan warna emas transparan */
+    border: 1px solid rgba(234, 179, 8, 0.2);
+    color: #eab308; /* Warna emas legal */
+}
+
+/* Label Status Terdaftar */
+.p-ip-status-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    color: #090f1c;
+    background: #eab308; /* Emas solid untuk penanda validitas */
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.p-ip-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+/* Meta Hukum Kemenkumham */
+.p-ip-law {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #64748b;
+    margin: 0 0 18px 0;
+}
+
+.p-ip-law strong {
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.p-ip-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0 0 30px 0;
+    flex-grow: 1; /* Menjaga agar tombol di bawah selalu sejajar rata */
+}
+
+/* --- UI BUTTON: Tombol Verifikasi PDKI --- */
+.p-ip-action-wrapper {
+    width: 100%;
+}
+
+.btn-verify-hki {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: #161b22; /* Latar gelap kontras ala GitHub */
+    color: #58a6ff; /* Biru verifikasi link */
+    border: 1px solid #30363d;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* --- INTERACTIVE MICRO-UX HOVER EFFECTS --- */
+.p-ip-card:hover {
+    transform: translateY(-5px);
+    background: #111827;
+    border-color: rgba(234, 179, 8, 0.3); /* Pendaran aura emas tipis saat disorot */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.btn-verify-hki:hover {
+    background: rgba(88, 166, 255, 0.1); /* Biru mengilap saat tombol disorot */
+    color: #ffffff;
+    border-color: #58a6ff;
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.15);
+}
+
+@media screen and (max-width: 992px) {
+    .p-ip-grid {
+        grid-template-columns: 1fr !important; /* Otomatis melipat menjadi 1 kolom vertikal di HP */
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .p-ip-card {
+        padding: 25px 20px;
+    }
+
+    .p-ip-header {
+        flex-direction: column; /* Label melipat vertikal jika di layar HP sempit */
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .p-ip-card h3 {
+        font-size: 18px;
+    }
+}
+
+/* ==========================================================================
+   PROVEN BUSINESS IMPACT METRICS STYLE
+   ========================================================================== */
+.p-metrics-section {
+    border-top: 1px solid #1f2937;
+    padding: 100px 0;
+    background-color: #090f1c;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.p-metrics-subtitle {
+    text-align: center; 
+    color: #94a3b8; 
+    max-width: 600px; 
+    
+    /* --- PERBAIKAN SPASI (SPACING FIX) --- */
+    margin: 25px auto 60px auto !important; /* Memberi jarak aman 25px di bawah garis hijau */
+    
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* KUNCI GRID UTAMA METRIK: Stabil 3 kolom sejajar di desktop laptop */
+.p-metrics-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- UI CARD: Desain Kotak Dasbor Angka --- */
+.p-metric-card {
+    background-color: rgba(17, 24, 39, 0.4); 
+    border: 1px solid #1f2937; 
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tipografi Angka Jumbo */
+.p-metric-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 52px; 
+    font-weight: 800; 
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+/* Variasi Pewarnaan Angka */
+.txt-emerald { color: #10b981; }
+.txt-blue { color: #3b82f6; }
+.txt-white { color: #ffffff; }
+
+.p-metric-card h3 {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff; 
+    font-size: 16px; 
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    letter-spacing: 0.3px;
+}
+
+.p-metric-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px; 
+    color: #94a3b8; 
+    line-height: 1.6;
+    margin: 0;
+}
+
+.p-metric-card p strong {
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+/* --- UI HIGHLIGHT: Kartu Sorotan Utama (10x Speed) --- */
+.p-metric-card.p-metric-highlight {
+    border: 1px solid rgba(16, 185, 129, 0.4); 
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(17, 24, 39, 0.8) 100%);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.02);
+}
+
+.p-metric-card.p-metric-highlight h3 {
+    color: #10b981; /* Judul ikut berubah hijau sebagai penanda point utama */
+}
+
+.p-metric-card.p-metric-highlight p {
+    color: #cbd5e1; /* Teks deskripsi lebih cerah agar mudah dibaca cepat */
+}
+
+/* --- MICRO-INTERACTIONS HOVER (UX) --- */
+.p-metric-card:hover {
+    transform: translateY(-5px);
+    background-color: #111827;
+    border-color: #334155;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.p-metric-card.p-metric-highlight:hover {
+    border-color: #10b981;
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08);
+}
+
+@media screen and (max-width: 992px) {
+    .p-metrics-grid {
+        grid-template-columns: 1fr !important; /* Hancurkan baris, lipat jadi 1 kolom bertumpuk di HP & Tablet */
+        gap: 25px;
+    }
+
+    .p-metric-card {
+        padding: 35px 25px;
+        width: 100% !important;
+    }
+    
+    .p-metrics-subtitle {
+        margin-bottom: 45px;
+    }
+}
+
+/* ==========================================================================
+   ENGAGEMENT MODEL & FINAL CTA STYLE
+   ========================================================================== */
+.p-engagement-section {
+    background-color: #090f1c;
+    padding: 60px 0 120px 0; /* Padding bawah sengaja diperlonggar sebagai penutup halaman web */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- UI CARD: Kotak Penawaran Utama --- */
+.p-engagement-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.6) 0%, rgba(13, 17, 23, 0.9) 100%);
+    border: 1px solid #1f2937;
+    padding: 60px 40px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Garis Aksen Neon di Bagian Atas Kartu (Pengganti Garis Kiri yang Kaku) */
+.p-engagement-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%); /* Gradasi Hijau ke Biru Dashboard */
+}
+
+/* Label Status */
+.p-engagement-badge {
+    color: #10b981; 
+    font-size: 11px; 
+    font-weight: 800; 
+    letter-spacing: 1.5px; 
+    display: block; 
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+}
+
+.p-engagement-card h3 {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff; 
+    font-size: 28px; 
+    font-weight: 700;
+    margin: 0 0 18px 0;
+    letter-spacing: -0.5px;
+}
+
+.p-engagement-text {
+    font-family: 'Inter', sans-serif;
+    color: #94a3b8; 
+    font-size: 14.5px; 
+    max-width: 680px; 
+    margin: 0 auto 35px auto; 
+    line-height: 1.7;
+}
+
+.p-engagement-text strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* --- UI ACTIONS: Flexbox Penyelaras Tombol --- */
+.p-engagement-actions {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; /* Menjamin tombol melipat rapi jika layar menyempit */
+}
+
+.btn-proposal, .btn-methodology {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 32px; 
+    border-radius: 8px; 
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; 
+    font-weight: 600; 
+    text-decoration: none; 
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tombol Hijau Utama (Proposal) */
+.btn-proposal {
+    background-color: #10b981; 
+    color: #090f1c;
+    border: 1px solid #10b981;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+}
+
+.btn-proposal:hover {
+    background-color: #059669;
+    border-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+/* Tombol Transparan Sekunder (Methodology) */
+.btn-methodology {
+    background-color: transparent; 
+    color: #94a3b8; 
+    border: 1px solid #334155;
+}
+
+.btn-methodology:hover {
+    background-color: rgba(51, 65, 85, 0.2);
+    color: #ffffff;
+    border-color: #475569;
+    transform: translateY(-2px);
+}
+
+/* --- INTERACTIVE CARD HOVER (UX) --- */
+.p-engagement-card:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+    .p-engagement-card {
+        padding: 45px 25px; /* Rampingkan ruang dalam kartu di layar ponsel */
+    }
+
+    .p-engagement-card h3 {
+        font-size: 22px; /* Perkecil skala judul agar proporsional di HP */
+    }
+
+    .p-engagement-text {
+        font-size: 13.5px;
+        margin-bottom: 30px;
+    }
+
+    .p-engagement-actions {
+        flex-direction: column; /* Tombol otomatis bertumpuk atas-bawah di HP */
+        gap: 12px;
+        width: 100%;
+    }
+
+    .btn-proposal, .btn-methodology {
+        width: 100%; /* Lebar tombol penuh di ponsel pintar */
+    }
+}
+
+/* ==========================================================================
+   INTEGRATED FOOTER LEGAL DISCLAIMER
+   ========================================================================== */
+.site-footer {
+    background-color: #0d1117; /* Sesuai dengan warna dasar footer Anda */
+    padding: 60px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Memastikan kontainer memiliki pengaman ruang terluar */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0 40px !important; /* Benteng pelindung anti-nempel dinding */
+    box-sizing: border-box;
+}
+
+.footer-brand {
+    flex: 1;
+    max-width: 650px; /* Membatasi lebar teks agar tidak terlalu memanjang ke kanan */
+    text-align: left;
+}
+
+.footer-copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #8b949e;
+    margin: 8px 0 15px 0;
+}
+
+/* Gaya Teks Disclaimer Terintegrasi */
+.footer-legal-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    color: #48515b; /* Abu-abu gelap redup agar bersifat sekunder dan elegan */
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+.footer-legal-disclaimer strong {
+    color: #6e7681; /* Sedikit lebih terang pada teks penanda 'Disclaimer' */
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Lipat menjadi vertikal atas-bawah di HP */
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 0 20px !important; /* Rampingkan jarak sisi di gawai kecil */
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-legal-disclaimer {
+        text-align: center; /* Rata tengah penuh agar proporsional di layar HP */
+        font-size: 11px;
+    }
+}

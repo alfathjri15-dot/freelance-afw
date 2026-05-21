@@ -1,0 +1,508 @@
+/* ==========================================================================
+   BAGROUND
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll halus saat menu diklik */
+}
+
+body {
+    background-color: #0b111e; /* Deep Slate Black */
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(9, 13, 22, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
+    border-bottom: 1px solid #1e293b;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Memaksa semua elemen tetap di 1 baris, dilarang turun */
+}
+
+.nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    flex-shrink: 0; /* Logo tidak boleh mengecil/tertekan */
+}
+
+.nav-logo span {
+    color: #10b981;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-item {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Teks menu tidak boleh patah jadi 2 baris */
+}
+
+.nav-item:hover {
+    color: #10b981;
+}
+
+.nav-action {
+    flex-shrink: 0;
+    margin-right: -30px; /* Menggeser ke kanan di desktop */
+}
+
+.btn-nav {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #10b981;
+    color: #10b981;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Tombol "Book Consultation" dipaksa lurus, anti-potong */
+}
+
+.btn-nav:hover {
+    background-color: #10b981;
+    color: #0b111e;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+@media screen and (max-width: 650px) {
+    /* Kunci Utama: Di bawah 650px menu teks disembunyikan agar 
+       Logo dan Tombol punya ruang lega di ujung kiri dan kanan */
+    .nav-menu {
+        display: none !important; 
+    }
+    
+    .nav-container {
+        width: 92%;
+    }
+    
+    .nav-logo {
+        font-size: 19px;
+    }
+
+    .btn-nav {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .nav-action {
+        margin-right: 0; /* Kembali ke posisi aman di HP */
+    }
+}
+
+/* ==========================================================================
+   CONTACT HUB & FOOTER SECURITY LAYOUT
+   ========================================================================== */
+
+/* --- 1. CONTACT HEADER STYLE --- */
+.p-contact-header-block {
+    background-color: #090f1c;
+    padding: 100px 0 20px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.p-contact-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 40px !important; /* Pengaman agar judul tidak menempel ke tepi layar */
+    box-sizing: border-box;
+}
+
+.p-contact-header-content h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 15px 0;
+    letter-spacing: -0.5px;
+}
+
+.p-contact-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #94a3b8;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- 2. GRID HUB CHANNELS STYLE --- */
+.p-contact-channels-section {
+    background-color: #090f1c;
+    padding: 30px 0 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.p-contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px !important; /* BENTENG UTAMA: Pengaman anti-nempel dinding */
+    box-sizing: border-box;
+}
+
+.p-contact-channels-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Stabil 3 kolom sejajar di desktop */
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- UI CARD CONTACT BASE --- */
+.p-contact-node-card {
+    background-color: rgba(22, 27, 34, 0.4);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 35px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Memastikan posisi tombol selalu sejajar di bawah */
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.p-contact-icon-wrapper {
+    margin-bottom: 20px;
+}
+
+.p-contact-node-card h3 {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.p-contact-node-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #8b949e;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    flex-grow: 1; /* Mendorong tombol ke batas bawah kartu secara merata */
+}
+
+/* --- TOMBOL AKSI KONVERSI (BUTTONS) --- */
+.btn-contact {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* Tombol Kiri (Email) */
+.btn-email {
+    background-color: #1f2937;
+    color: #3b82f6;
+    border: 1px solid #334155;
+}
+.btn-email:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+}
+
+/* Tombol Tengah (LinkedIn Featured) */
+.card-featured {
+    border: 2px solid #10b981; /* Aksen hijau utama penanda prioritas interaksi */
+    background-color: rgba(22, 27, 34, 0.7);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.03);
+}
+.btn-linkedin {
+    background-color: #10b981;
+    color: #ffffff;
+}
+.btn-linkedin:hover {
+    background-color: #059669;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Tombol Kanan (WhatsApp) */
+.btn-whatsapp {
+    background-color: transparent;
+    color: #94a3b8;
+    border: 1px solid #30363d;
+}
+.btn-whatsapp:hover {
+    background-color: rgba(148, 163, 184, 0.08);
+    color: #ffffff;
+    border-color: #475569;
+}
+
+/* Hover Efek Kartu */
+.p-contact-node-card:hover {
+    transform: translateY(-4px);
+    border-color: #475569;
+}
+.card-featured:hover {
+    border-color: #10b981;
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.1);
+}
+
+/* --- 3. FOOTER SECURITY STATEMENT STYLE --- */
+.p-contact-footer-security {
+    background-color: #090f1c;
+    padding: 60px 0 100px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.p-security-inline-box {
+    border-top: 1px solid #1f2937;
+    padding-top: 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.p-security-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: #3b82f6;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.p-security-inline-box h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+}
+
+.p-security-inline-box p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #64748b; /* Warna abu-abu redup penanda teks jaminan hukum */
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 992px) {
+    .p-contact-channels-grid {
+        grid-template-columns: 1fr !important; /* Otomatis melipat jadi 1 kolom vertikal di HP */
+        gap: 20px;
+    }
+
+    .p-contact-node-card {
+        padding: 30px 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .p-contact-container, .p-contact-header-content {
+        padding: 0 20px !important; /* Jarak aman dirampingkan khusus layar HP kecil agar nyaman dibaca */
+    }
+
+    .p-contact-header-content h1 {
+        font-size: 28px;
+    }
+
+    .p-contact-tagline {
+        font-size: 14px;
+    }
+}
+
+/* ==========================================================================
+   EMBEDDED TERMINAL FOOTNOTE (SECURITY STATEMENT)
+   ========================================================================== */
+.p-footer-secure-section {
+    background-color: #090f1c;
+    padding: 40px 0 100px 0; /* Padding bawah sengaja diperluas sebagai penutup halaman */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Penampung Utama dengan Pengaman Sisi Dinding */
+.p-secure-footnote-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 40px !important; /* Benteng pertahanan agar teks tidak menempel ke tepi monitor */
+    box-sizing: border-box;
+}
+
+/* Garis pembatas tipis penanda transisi dari kartu kontak di atasnya */
+.p-secure-line-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #1f2937 50%, transparent 100%);
+    margin-bottom: 50px;
+}
+
+.p-secure-footnote-content {
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Lencana Meta Keamanan Terbuka */
+.p-secure-meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #58a6ff; /* Aksen biru laut khas protokol keamanan jaringan */
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.p-secure-footnote-content h3 {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.3px;
+}
+
+.p-secure-footnote-content p {
+    font-family: 'Inter', sans-serif;
+    color: #64748b; /* Warna diturunkan satu tingkat ke abu-abu redup agar bersifat sekunder */
+    font-size: 13.5px;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.65;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .p-secure-footnote-container {
+        padding: 0 20px !important; /* Merampingkan bantalan di layar ponsel pintar */
+    }
+
+    .p-secure-line-divider {
+        margin-bottom: 40px;
+    }
+
+    .p-secure-footnote-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
+
+/* ==========================================================================
+   INTEGRATED FOOTER LEGAL DISCLAIMER
+   ========================================================================== */
+.site-footer {
+    background-color: #0d1117; /* Sesuai dengan warna dasar footer Anda */
+    padding: 60px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Memastikan kontainer memiliki pengaman ruang terluar */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0 40px !important; /* Benteng pelindung anti-nempel dinding */
+    box-sizing: border-box;
+}
+
+.footer-brand {
+    flex: 1;
+    max-width: 650px; /* Membatasi lebar teks agar tidak terlalu memanjang ke kanan */
+    text-align: left;
+}
+
+.footer-copyright {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #8b949e;
+    margin: 8px 0 15px 0;
+}
+
+/* Gaya Teks Disclaimer Terintegrasi */
+.footer-legal-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    color: #48515b; /* Abu-abu gelap redup agar bersifat sekunder dan elegan */
+    line-height: 1.6;
+    margin: 0;
+    text-align: justify;
+}
+
+.footer-legal-disclaimer strong {
+    color: #6e7681; /* Sedikit lebih terang pada teks penanda 'Disclaimer' */
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Lipat menjadi vertikal atas-bawah di HP */
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        padding: 0 20px !important; /* Rampingkan jarak sisi di gawai kecil */
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-legal-disclaimer {
+        text-align: center; /* Rata tengah penuh agar proporsional di layar HP */
+        font-size: 11px;
+    }
+}
