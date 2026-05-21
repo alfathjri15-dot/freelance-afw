@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFW Strategic Labs | Enterprise Data & AI Consultant</title>
+    
+    <link rel="stylesheet" href="style-1.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- 1. SCRIPT ANIMASI SCROLL (INTERSECTION OBSERVER) ---
+            // Mengambil semua elemen kartu kompetensi dan node pengalaman kerja
+            const animatedElements = document.querySelectorAll('.p-card-item, .p-timeline-node');
+
+            const observerOptions = {
+                root: null, // Menggunakan viewport browser sebagai area deteksi
+                rootMargin: '0px',
+                threshold: 0.15 // Animasi terpicu jika 15% bagian elemen sudah terlihat di layar
+            };
+
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Menambahkan jeda waktu (delay) berurutan jika elemen muncul bersamaan (stagger effect)
+                        setTimeout(() => {
+                            entry.target.classList.add('scroll-active');
+                        }, index * 100); // Jeda 100ms antar kartu agar muncul bergantian secara estetik
+                    
+                        // Berhenti memantau elemen ini jika sudah berhasil dianimasikan
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Daftarkan semua elemen ke dalam radar pemantau observer
+            animatedElements.forEach(element => {
+                scrollObserver.observe(element);
+            });
+        });
+    </script>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">AFW</a>
+            <nav class="nav-menu">
+                <a href="profile.html" class="nav-item">Profile</a>
+                <a href="solution.html" class="nav-item">Solution</a>
+                <a href="methodology.html" class="nav-item">Methodology</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </nav>
+            <div class="nav-action">
+                <a href="mailto:al.fathjri.15@gmail.com?subject=Inquiry" class="btn-nav">Book</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="p-hero-block">
+            <div class="p-container">
+                <div class="p-hero-flex">
+                
+                    <div class="p-hero-text">
+                        <span class="p-badge">Strategic Data & Operations Analyst</span>
+                        <h1>Al Fathjri Wisesa, M.Si.</h1>
+                        <p class="p-tagline">
+                            Expert in bridging the gap between complex data insights and executive decision-making.
+                        </p>
+                        <p class="p-bio">
+                            Professional Data Scientist and Operations Analyst holding a Master of Science (M.Si.) degree, specializing in <em>predictive modeling</em> and AI implementation. Possesses a strong track record of pioneering digital transformation by migrating manual workflows into robust, data-driven system architectures. Expert in business process automation, tender analysis governance, and corporate financial administration automation utilizing Python and the Machine Learning ecosystem.
+                        </p>
+                        <div class="p-hero-cta">
+                            <a href="mailto:al.fathjri.15@gmail.com" class="btn-p-primary">Get in Touch</a>
+                            <a href="solution.html" class="btn-p-secondary">View Solutions</a>
+                        </div>
+                    </div>
+
+                    <div class="p-hero-photo-container">
+                        <div class="p-hero-photo-wrapper">
+                            <img src="Documents/Profile.jpeg" alt="Al Fathjri Wisesa, M.Si." class="p-hero-photo">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="p-section-block">
+            <div class="p-block-container">
+                <h2 class="p-block-title">Core Competencies</h2>
+            
+                <div class="p-skills-grid">
+                    <div class="p-card-item">
+                        <div class="p-card-header">
+                            <div class="p-icon">🐍</div>
+                            <h3>Data Engineering & Automation</h3>
+                        </div>
+                        <div class="p-skill-tags">
+                            <span>Python Programming</span>
+                            <span>SQL</span>
+                            <span>Data Pipeline</span>
+                            <span>Database Mgmt</span>
+                            <span>AI Automation</span>
+                            <span>Streamlit/Reflex</span>
+                        </div>
+                    </div>
+
+                    <div class="p-card-item">
+                        <div class="p-card-header">
+                            <div class="p-icon">📊</div>
+                            <h3>Predictive Analytics</h3>
+                        </div>
+                        <div class="p-skill-tags">
+                            <span>Predictive Modelling</span>
+                            <span>Machine Learning</span>
+                            <span>Time Series</span>
+                            <span>Statistical Analysis</span>
+                            <span>Tableau Viz</span>
+                        </div>
+                    </div>
+
+                    <div class="p-card-item">
+                        <div class="p-card-header">
+                            <div class="p-icon">💼</div>
+                            <h3>Operations & Finance</h3>
+                        </div>
+                        <div class="p-skill-tags">
+                            <span>Executive Reporting</span>
+                            <span>Data Driven Strategy</span>
+                            <span>Tax Administration</span>
+                            <span>CoreTax Integration</span>
+                            <span>Profitability Tracking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-section-block">
+            <div class="p-timeline-wrapper">
+                <h2 class="p-block-title">Professional Experience</h2>
+            
+                <div class="p-timeline-container">
+                    <div class="p-timeline-line"></div>
+                
+                    <div class="p-timeline-node">
+                        <div class="p-timeline-dot"></div>
+                        <div class="p-node-header">
+                            <span class="p-node-date">OCT 2025 - PRESENT</span>
+                            <span class="p-node-company">PT Binatama Wirawredha Konsultan</span>
+                        </div>
+                        <div class="p-node-content">
+                            <h3>Strategic Data & Operations Analyst <span class="p-job-type">Full-Time</span></h3>
+                            <ul class="p-bullets">
+                                <li>Led the digital transformation of tender analytics by migrating manual tracking into structured analytical frameworks, mapping winning patterns, and identifying high-performing regional clusters for strategic bidding.</li>
+                                <li>Trusted by the CEO and Board of Directors to facilitate high-level decision-making through data-driven executive briefs. Managed end-to-end tax administration (CoreTax) and established business performance tracking systems to evaluate project profitability.</li>
+                                <li>Designed and deployed centralized databases and automated tracking systems from scratch to monitor corporate legality documents and project compliance, successfully reducing manual retrieval errors by 100%.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-timeline-node">
+                        <div class="p-timeline-dot"></div>
+                        <div class="p-node-header">
+                            <span class="p-node-date">JUL 2023 - APR 2025</span>
+                            <span class="p-node-company">Universitas Negeri Malang</span>
+                        </div>
+                        <div class="p-node-content">
+                            <h3>Research & Data Analyst <span class="p-job-type">Contract</span></h3>
+                            <ul class="p-bullets">
+                                <li>Managed end-to-end data processing for grant-funded projects, ensuring rigorous data integrity and strict regulatory compliance to facilitate well-informed decision-making.</li>
+                                <li>Conducted advanced statistical analysis to uncover actionable trends, directly optimizing resource allocation and shaping strategic project roadmaps.</li>
+                                <li>Partnered with multidisciplinary teams to design and standardize data collection methodologies, guaranteeing accurate data quality across all research phases.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-timeline-node">
+                        <div class="p-timeline-dot"></div>
+                        <div class="p-node-header">
+                            <span class="p-node-date">FEB 2023 - JUN 2023</span>
+                            <span class="p-node-company">PT Bisa Artificial Indonesia (Bisa.AI)</span>
+                        </div>
+                        <div class="p-node-content">
+                            <h3>Data Science & Artificial Intelligence <span class="p-job-type">Internship</span></h3>
+                            <ul class="p-bullets">
+                                <li>Designed automated Decision Support Systems (DSS) and predictive monitoring tools utilizing Machine Learning and Deep Learning frameworks to drive operational efficiency.</li>
+                                <li>Developed and deployed interactive web-based dashboards with seamless database integration to facilitate real-time visibility into project milestones and regulatory compliance tracking.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="p-section-block">
+            <div class="p-block-container">
+                <h2 class="p-block-title">Education Background</h2>
+            
+                <div class="p-edu-grid">
+                    <div class="p-edu-box">
+                        <div class="p-edu-header">
+                            <span class="p-edu-year">2024 - 2025</span>
+                            <div class="p-gpa-badge">GPA 3.74</div>
+                        </div>
+                        <h3>Universitas Negeri Malang</h3>
+                        <p class="p-edu-degree">Master's Degree of Science (M.Si.)</p>
+                        <div class="p-edu-divider"></div>
+                        <p class="p-edu-text">Awarded a funded research grant for mental health studies, optimizing analytical methodologies through Machine Learning approaches.</p>
+                    </div>
+
+                    <div class="p-edu-box">
+                        <div class="p-edu-header">
+                            <span class="p-edu-year">2020 - 2024</span>
+                            <div class="p-gpa-badge">GPA 3.67</div>
+                        </div>
+                        <h3>Universitas Negeri Malang</h3>
+                        <p class="p-edu-degree">Bachelor's Degree of Science (S.Si.)</p>
+                        <div class="p-edu-divider"></div>
+                        <p class="p-edu-text">Specialized in non-invasive health assessments using physics-based methods, sensor data analysis, and advanced experimental design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-section-block" style="padding-bottom: 100px;">
+            <div class="p-block-container">
+                <h2 class="p-block-title">Certifications</h2>
+            
+                <div class="p-cert-grid">
+                    <div class="p-cert-card">
+                        <div class="p-cert-badge-type international">International</div>
+                        <div class="p-cert-body">
+                            <div class="p-cert-icon">🏅</div>
+                            <div class="p-cert-info">
+                                <h3>Artificial Intelligence BIZ</h3>
+                                <span class="p-cert-issuer">Issued by: <strong>CertNexus (2023)</strong></span>
+                                <p class="p-cert-text">Validates global standards in identifying AI-driven business opportunities, formulating digital transformation strategies, and bridging technical Machine Learning solutions with the strategic needs of executive decision-makers (CEO/Board).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-cert-card">
+                        <div class="p-cert-badge-type national">National</div>
+                        <div class="p-cert-body">
+                            <div class="p-cert-icon">📜</div>
+                            <div class="p-cert-info">
+                                <h3>Artificial Intelligence (Data Science)</h3>
+                                <span class="p-cert-issuer">Issued by: <strong>PT Bisa Artificial Indonesia (BISA AI) (2023)</strong></span>
+                                <p class="p-cert-text">Competency certification in designing Decision Support Systems (DSS), building data pipelines, and implementing predictive modeling and Machine Learning algorithms to optimize operational efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-section-block">
+            <div class="p-block-container">
+                <div class="p-stack-action-container">
+                
+                    <div class="p-tech-stack-side">
+                        <h4 class="p-stack-title">Verified Tech Stack</h4>
+                        <div class="p-tech-tags">
+                            <span class="p-tag-expert">Python <small>Expert</small></span>
+                            <span class="p-tag-expert">Machine Learning <small>Expert</small></span>
+                            <span class="p-tag-expert">Streamlit / Reflex <small>Expert</small></span>
+                            <span class="p-tag-expert">Data Science <small>Expert</small></span>
+                            <span class="p-tag-expert">Data Analysis <small>Expert</small></span>
+                        
+                            <span class="p-tag-item">SQL & Databases</span>
+                            <span class="p-tag-item">Time Series Analysis</span>
+                            <span class="p-tag-item">Tableau BI</span>
+                            <span class="p-tag-item">CoreTax Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="p-cv-action-side">
+                        <div class="p-action-card">
+                            <h5>Looking for the full profile?</h5>
+                            <p>Get the comprehensive, print-ready version of my professional journey.</p>
+                            <a href="Documents/Al Fathjri Wisesa - CV.pdf" download class="btn-download-cv">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                                Download Formal CV (PDF)
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="p-wrapper footer-container">
+            
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo footer-logo">AFW<span></a>
+                <p class="footer-copyright">© 2026 AFW Strategic Labs. All Rights Reserved.</p>
+                
+                <p class="footer-legal-disclaimer">
+                    <strong>Disclaimer:</strong> AFW is a personal brand initiative operated independently by Al Fathjri as a professional freelance and consultancy service. It is not registered as a formal corporate entity, and all featured logos, project codenames, or branding materials are created solely for visual portfolio representation and conceptual demonstration purposes.
+                </p>
+            </div>
+
+            <div class="footer-actions">
+                <a href="mailto:al.fathjri.15@gmail.com" class="footer-email">
+                    ✉️ al.fathjri.15@gmail.com
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

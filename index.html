@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFW Strategic Labs | Enterprise Data & AI Consultant</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+
+    // Our CAPABILITIES
+    <script>
+        // Inisialisasi index default (Card Tengah dimaksimalkan pada urutan ke-2 / Index 1)
+        let currentActiveIndex = 1; 
+        const totalCards = 3;
+
+        function updateCarouselLayout() {
+            const cards = document.querySelectorAll('#carouselTrack .solution-card');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+
+            cards.forEach((card, index) => {
+                // Reset semua class posisi dasar
+                card.className = 'solution-card';
+            
+                // Logika kalkulasi penempatan posisi berputar (Looping)
+                let positionIndex = (index - currentActiveIndex + totalCards) % totalCards;
+
+                if (positionIndex === 0) {
+                    card.classList.add('pos-center'); // Aktif di tengah
+                } else if (positionIndex === 1) {
+                    card.classList.add('pos-right');  // Berada di kanan
+                } else {
+                    card.classList.add('pos-left');   // Berada di kiri
+                }
+            });
+
+            // Update indikator aktif pada dot bawah
+            dots.forEach((dot, index) => {
+                dot.className = index === currentActiveIndex ? 'dot active' : 'dot';
+            });
+        }
+
+        // Fungsi klik tombol panah kanan/kiri
+        function moveCarousel(direction) {
+            currentActiveIndex = (currentActiveIndex + direction + totalCards) % totalCards;
+            updateCarouselLayout();
+        }
+
+        // Fungsi klik langsung pada titik indikator
+        function setCarousel(index) {
+            currentActiveIndex = index;
+            updateCarouselLayout();
+        }
+
+        // Jalankan susunan layout pertama kali saat web dibuka
+        document.addEventListener("DOMContentLoaded", updateCarouselLayout);
+    </script>
+
+    // Testiomial Statement
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carousel = document.getElementById("testimonialCarousel");
+            
+            // Time interval for sliding (10000 milliseconds = 10 seconds)
+            const intervalTime = 10000; 
+            
+            function autoScroll() {
+                // Calculate full card width including the gap
+                const cardWidth = carousel.offsetWidth + 30; 
+                
+                // If scroll reaches the end of the last card, reset to start (0)
+                if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    // Otherwise, scroll right by one card width
+                    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            }
+
+            // Execute auto scroll based on time interval
+            let scrollInterval = setInterval(autoScroll, intervalTime);
+
+            // OPTIONAL: Stop auto timer if user manually scrolls/touches the slider
+            carousel.addEventListener("pointerdown", () => clearInterval(scrollInterval));
+            carousel.addEventListener("pointerup", () => {
+                clearInterval(scrollInterval);
+                scrollInterval = setInterval(autoScroll, intervalTime);
+            });
+        });
+    </script>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">AFW</a>
+            <nav class="nav-menu">
+                <a href="profile.html" class="nav-item">Profile</a>
+                <a href="solution.html" class="nav-item">Solution</a>
+                <a href="methodology.html" class="nav-item">Methodology</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </nav>
+            <div class="nav-action">
+                <a href="mailto:al.fathjri.15@gmail.com?subject=Inquiry" class="btn-nav">Book</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <span class="subtitle">STRATEGIC DATA & OPERATIONS ANALYST</span>
+                <h1>Bridging Complex Data Insights into Executive Certainty.</h1>
+                <p class="bio">
+                    Businesses are often drowning in data but starving for insights. I help executives and stakeholders bridge 
+                    that gap. I transform raw datasets into clean, interactive web applications and dashboards that make 
+                    data easy to search, view, and analyze. Turning complex numbers into clear, confident business decisions.
+                </p>
+                <div class="cta-buttons">
+                    <a href="solution.html" class="btn btn-primary">View Enterprise Portfolio</a>
+                    <a href="mailto:al.fathjri.15@gmail.com" class="btn btn-secondary">Contact Partner</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="Capablities" class="solutions-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="tagline">OUR CAPABILITIES</span>
+                    <h2>Architecting Data Engines for Institutional Growth</h2>
+                    <p>We re-engineer raw data into secure, automated, and profitability-oriented decision infrastructures.</p>
+                </div>
+
+                <div class="carousel-3d-wrapper">
+                
+                    <button class="nav-btn prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+                
+                    <div class="solutions-grid-3d" id="carouselTrack">
+                    
+                        <div class="solution-card">
+                            <div class="card-icon">🛡️</div>
+                            <h3>Enterprise Digital Governance & Compliance</h3>
+                            <p>Migrating manual archiving prone to compliance penalties into secure, centralized digital relational repository systems.</p>
+                            <ul class="card-features">
+                                <li><span class="check-icon">✓</span> Real-time tracking algorithms for permit validity periods</li>
+                                <li><span class="check-icon">✓</span> Low-latency synchronous search systems (&lt; 2.5 seconds)</li>
+                                <li><span class="check-icon">✓</span> In-app rendering security protocols</li>
+                            </ul>
+                        </div>
+
+                        <div class="solution-card">
+                            <div class="card-icon">📈</div>
+                            <h3>Strategic Data Intelligence & Spatial Analytics</h3>
+                            <p>Transforming complex datasets and location-based information into strategic insights to drive precision business growth.</p>
+                            <ul class="card-features">
+                                <li><span class="check-icon">✓</span> Geospatial-based trend mapping and market potential analysis</li>
+                                <li><span class="check-icon">✓</span> Performance evaluation of partner networks and customer retention (CRM)</li>
+                                <li><span class="check-icon">✓</span> Business trend forecasting and multi-quarter metric stream analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="solution-card">
+                            <div class="card-icon">🤖</div>
+                            <h3>AI Automation & Data Operations</h3>
+                            <p>Integrating modern artificial intelligence (GenAI) for workflow automation and accountable operational data management.</p>
+                            <ul class="card-features">
+                                <li><span class="check-icon">✓</span> Intelligent document search systems based on NLP (RAG)</li>
+                                <li><span class="check-icon">✓</span> Workflow automation and data compliance management</li>
+                                <li><span class="check-icon">✓</span> Interactive cloud dashboards built using Python & Web Hubs</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <button class="nav-btn next-btn" onclick="moveCarousel(1)">&#10095;</button>
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot" onclick="setCarousel(0)"></span>
+                    <span class="dot" onclick="setCarousel(1)"></span>
+                    <span class="dot" onclick="setCarousel(2)"></span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="methodology" class="methodology-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="tagline">EXECUTION PLAYBOOK</span>
+                    <h2>How We Deliver Enterprise Solutions</h2>
+                    <p>The structured procedures utilized to transform your operational challenges into production-ready data architectures.</p>
+                </div>
+
+                <div class="method-timeline-glow">
+                    
+                    <div class="timeline-line-base">
+                        <div class="timeline-line-fill"></div>
+                    </div>
+
+                    <div class="method-step-glow">
+                        <div class="step-number-glow">01</div>
+                        <div class="step-card-glow">
+                            <h3>Data Audit & Inefficiencies Discovery</h3>
+                            <p>Identifying profit leakages, legal compliance risks, or latency bottlenecks caused by manual data retrieval within your internal business operations.</p>
+                        </div>
+                    </div>
+
+                    <div class="method-step-glow">
+                        <div class="step-number-glow">02</div>
+                        <div class="step-card-glow">
+                            <h3>Relational Architecture & Masking Logic</h3>
+                            <p>Designing clean database schemas (SQL/Pandas Engine) and embedding data sanitization algorithms to protect sensitive corporate assets in compliance with NDA ethics.</p>
+                        </div>
+                    </div>
+
+                    <div class="method-step-glow">
+                        <div class="step-number-glow">03</div>
+                        <div class="step-card-glow">
+                            <h3>Interactive Web Deployment</h3>
+                            <p>Building high-end interactive interfaces (Streamlit/Reflex web apps) and deploying them securely onto cloud servers for instant executive access.</p>
+                        </div>
+                    </div>
+
+                    <div class="method-step-glow">
+                        <div class="step-number-glow">04</div>
+                        <div class="step-card-glow">
+                            <h3>Automation & Continuous Optimization</h3>
+                            <p>Integrating scheduling bots, NLP models (RAG), and monitoring metrics to ensure the enterprise data engine runs autonomously and stays profitable.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="trust" class="trust-section">
+            <div class="container">
+                <div class="trust-box">
+                    <div class="trust-badge">🛡️ Strict NDA Compliance</div>
+                    <h2>Enterprise Integrity & Data Sanitization Protocol</h2>
+                    <p>
+                        As a professional data practitioner, I recognize that operational data, tender valuation figures, and internal corporate strategies are highly confidential, high-value assets.
+                    </p>
+                    <div class="trust-points">
+                        <div class="t-point">
+                            <strong>Absolute NDA Compliance:</strong> All project data displayed within this *Vault* ecosystem has undergone thorough <em>Data Masking</em> and utilizes fictional regional simulations (Eldoria & Kunyavall).
+                        </div>
+                        <div class="t-point">
+                            <strong>Source Code Security:</strong> The logical architecture of Python, SQL, and AI models mirrors real corporate production standards 100% without exposing a single line of raw, sensitive client data.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container text-center">
+                <span class="tagline">LET'S WORK TOGETHER</span>
+                <h2>Ready to Transform Your Business Operations?</h2>
+                <p>Discuss your operational bottlenecks, governance automation, or corporate tender analytics needs with us today.</p>
+                
+                <div class="contact-grid">
+                    <a href="mailto:al.fathjri.15@gmail.com?subject=Inquiry:%20Data%20&%20Operations%20Consulting" class="contact-card-link">
+                        <div class="c-icon">✉️</div>
+                        <h4>Email Inquiry</h4>
+                        <p>al.fathjri.15@gmail.com</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/al-fathjri-wisesa-532263352/" target="_blank" class="contact-card-link">
+                        <div class="c-icon">💼</div>
+                        <h4>Professional Network</h4>
+                        <p>linkedin.com/in/alfathjri.15</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-recognition-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="tagline" style="color: black">TRUSTED BY LEADING INSTITUTIONS</span>
+                    <h2>Strategic Recognition & Partnerships</h2>
+                    <p>Apreciations from executives regarding data transformations, automated governance, and operational efficiency gains.</p>
+                </div>
+
+                <div class="logo-grid">
+                    <div class="logo-item">
+                        <img src="Documents/BWK.jpeg" alt="Logo PT Binatama Wirawredha Konsultan">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-recognition-section_1">
+            <div class="container">
+                
+                <div class="slider-wrapper">
+                    <div class="cards-carousel" id="testimonialCarousel">
+                        
+                        <div class="recognition-card-dark">
+                            <div class="card-dark-header">
+                                <div class="client-profile-box">
+                                    <div class="client-avatar-frame">
+                                        <div class="avatar-placeholder">CEO</div>
+                                    </div>
+                                    <div class="client-identity">
+                                        <h3>Chief Executive Office</h3>
+                                        <p class="position">Chief Operations Officer (COO)</p>
+                                        <p class="company">PT Binatama Wirawredha Konsultan</p>
+                                    </div>
+                                </div>
+                                <div class="client-logo-box">
+                                    <img src="Documents/BWK.jpeg" alt="Logo PT BWK" class="client-brand-logo">
+                                </div>
+                            </div>
+                            <div class="card-dark-divider"></div>
+                            <div class="card-dark-body">
+                                <div class="testimonial-statement">
+                                    <span class="quote-mark">“</span>
+                                    <p>AFW Strategic Labs successfully overhauled our legacy manual reporting into low-latency interactive dashboards. Strategic decisions that used to take days can now be evaluated in minutes.</p>
+                                </div>
+                                <ul class="achievement-list">
+                                    <li><span class="check-icon">✓</span> Modernized legacy archiving architectures into secure digital relational repositories.</li>
+                                    <li><span class="check-icon">✓</span> Streamlined raw data retrieval into production-grade visual assets for the board.</li>
+                                    <li><span class="check-icon">✓</span> Deployed low-latency dashboard systems fully protected under internal encryption protocols.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="recognition-card-dark">
+                            <div class="card-dark-header">
+                                <div class="client-profile-box">
+                                    <div class="client-avatar-frame">
+                                        <div class="avatar-placeholder">CMO</div>
+                                    </div>
+                                    <div class="client-identity">
+                                        <h3>Chief Management Office</h3>
+                                        <p class="position">Chief Management Officer (CMO)</p>
+                                        <p class="company">PT Binatama Wirawredha Konsultan</p>
+                                    </div>
+                                </div>
+                                <div class="client-logo-box">
+                                    <img src="Documents/BWK.jpeg" alt="Logo PT BWK" class="client-brand-logo">
+                                </div>
+                            </div>
+                            <div class="card-dark-divider"></div>
+                            <div class="card-dark-body">
+                                <div class="testimonial-statement">
+                                    <span class="quote-mark">“</span>
+                                    <p>The integrated geospatial data architecture engineered for us provided complete real-time visibility over multi-quarter metric movements across key operational territories.</p>
+                                </div>
+                                <ul class="achievement-list">
+                                    <li><span class="check-icon">✓</span> Integrated geospatial-based trend mapping and market potential models.</li>
+                                    <li><span class="check-icon">✓</span> Structured business trend forecasting backed by centralized Python & Web Hub visualizations.</li>
+                                    <li><span class="check-icon">✓</span> Enforced strict data masking logic on sensitive assets per enterprise NDA standards.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swipe-indicator">
+                    <span>Swipe or Scroll Right</span> →
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="p-wrapper footer-container">
+            
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo footer-logo">AFW</a>
+                <p class="footer-copyright">© 2026 AFW Strategic Labs. All Rights Reserved.</p>
+                
+                <p class="footer-legal-disclaimer">
+                    <strong>Disclaimer:</strong> AFW is a personal brand initiative operated independently by Al Fathjri as a professional freelance and consultancy service. It is not registered as a formal corporate entity, and all featured logos, project codenames, or branding materials are created solely for visual portfolio representation and conceptual demonstration purposes.
+                </p>
+            </div>
+
+            <div class="footer-actions">
+                <a href="mailto:al.fathjri.15@gmail.com" class="footer-email">
+                    ✉️ al.fathjri.15@gmail.com
+                </a>
+            </div>
+
+        </div>
+    </footer>
+    
+</body>
+</html>
